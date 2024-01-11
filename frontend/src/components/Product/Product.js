@@ -15,12 +15,19 @@ import { addToCart,viewedItem } from "../../features/cartSlice"
 import { FaEye } from 'react-icons/fa';
 import { MdOutlineDateRange } from 'react-icons/md';
 const Product = (props) => {
+  const [billings, setBillings] = useState([]);
   const { cart } = useSelector((state) => state.Allcart)
   const dispatch = useDispatch();
   const [level, setLevel] = useState('');
   const { enqueueSnackbar } = useSnackbar();
   let product={...props.product};
+  // let purchasedCourses={...props.purchasedCourses};
   const handleClickVariant = (variant) => () => {
+    // if (billings.filter(item=>item._id===props.orders._id).length!==0)
+    //   {variant='warning';
+    //     enqueueSnackbar('Khóa học đã ', { variant });
+    //     return;
+    // }
     if (cart.filter(item=>item._id===props.product._id).length!==0)
       {variant='warning';
         enqueueSnackbar('Khóa học đã có trong giỏ hàng', { variant });
